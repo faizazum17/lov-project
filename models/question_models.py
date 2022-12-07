@@ -12,9 +12,9 @@ class Question(Base):
 
     class Config:
         schema_extra = {
-            "Contoh": {
-                "pertanyaan": "Pasanganku memandang perilaku serta perkataanku secara negatif. ",
-                "pilihan": "1 (Hampir Tidak Pernah), 2 (Terkadang), 3 (Sering)"
+            "Example": {
+                "pertanyaan": "Aku merasa lebih dicintai ketika... ",
+                "pilihan": "Seorang yang kucinta mengirimkan pesan tanpa sebab khusus(1), Aku memeluk orang yang kucintai (2), Menghabiskan waktu berdua saja(3) "
             }
         }
 
@@ -26,9 +26,9 @@ class QuestionSchema(BaseModel):
     class Config:
         orm_mode = True
         schema_extra = {
-            "example": {
-                "pertanyaan": "Pasanganku memandang perilaku serta perkataanku secara negatif. ",
-                "pilihan": "1 (Hampir Tidak Pernah), 2 (Terkadang), 3 (Sering)"
+            "Example": {
+                "pertanyaan": "Aku merasa lebih dicintai ketika... ",
+                "pilihan": "Seorang yang kucinta mengirimkan pesan tanpa sebab khusus(1), Aku memeluk orang yang kucintai (2), Menghabiskan waktu berdua saja(3) "
             }
         }
 
@@ -43,20 +43,23 @@ class QuestionShow(BaseModel):
         schema_extra = {
             "example": {
                 "int": 1,
-                "pertanyaan": "Pasanganku memandang perilaku serta perkataanku secara negatif. ",
-                "pilihan": "1 (Hampir Tidak Pernah), 2 (Terkadang), 3 (Sering)"
+                "pertanyaan": "Aku merasa lebih dicintai ketika... ",
+                "pilihan": "Seorang yang kucinta mengirimkan pesan tanpa sebab khusus(1), Aku memeluk orang yang kucintai (2), Menghabiskan waktu berdua saja(3) "
             }
         }
 
 
 class QuestionUpdate(BaseModel):
     masalah: str
+    pilihan: str
 
     class Config:
         orm_mode = True
         schema_extra = {
             "example": {
-                "pertanyaan": "Pasanganku memandang perilaku serta perkataanku secara negatif. ",
+                "int": 1,
+                "pertanyaan": "Aku merasa lebih dicintai ketika... ",
+                "pilihan": "Seorang yang kucinta mengirimkan pesan tanpa sebab khusus(1), Aku memeluk orang yang kucintai (2), Menghabiskan waktu berdua saja(3) "
             }
         }
 

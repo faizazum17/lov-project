@@ -2,7 +2,6 @@ from sqlalchemy.orm import Session
 from models.question_models import QuestionSchema, Question, QuestionUpdate
 from fastapi import HTTPException, status
 
-'''
 def create_quesiton(request: QuestionSchema, db: Session, user:str):
     if (user != "admin@gmail.com"):
         raise HTTPException(
@@ -15,7 +14,7 @@ def create_quesiton(request: QuestionSchema, db: Session, user:str):
     if masalah.first():
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="Masalah tersebut sudah ada."
+            detail="Pertanyaan tersebut sudah ada."
         )
 
     masalah_baru = Question(masalah=request.masalah, pilihan=request.pilihan)
@@ -24,9 +23,8 @@ def create_quesiton(request: QuestionSchema, db: Session, user:str):
     db.refresh(masalah_baru)
 
     return {
-        "Pesan": "Masalah berhasil ditambahkan."
+        "Pesan": "Pertanyaan berhasil ditambahkan."
     }
-'''
 
 def get_questions(db: Session):
     return db.query(Question).all()
@@ -43,7 +41,7 @@ def get_question(id: int, db: Session):
 
     return masalah.first()
 
-'''
+
 def update_question(id: int, request: QuestionUpdate, db: Session, user:str):
     if (user != "admin@gmail.com"):
         raise HTTPException(
@@ -56,18 +54,18 @@ def update_question(id: int, request: QuestionUpdate, db: Session, user:str):
     if not masalah.first():
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Masalah dengan id tersebut tidak ditemukan."
+            detail="Pertanyaan dengan id tersebut tidak ditemukan."
         )
 
-    masalah.update({'masalah': request.masalah})
+    masalah.update({'Pertanyaan': request.masalah})
+    masalah.update({'pilihan': request.pilihan})
     db.commit()
 
     return {
-        "Pesan": "Masalah berhasil diperbarui."
+        "Pesan": "Pertanyaan berhasil diperbarui."
     }
-'''
 
-'''
+
 def delete_question(id: int, db: Session, user:str):
     if (user != "admin@gmail.com"):
         raise HTTPException(
@@ -80,7 +78,7 @@ def delete_question(id: int, db: Session, user:str):
     if not masalah.first():
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Masalah dengan id tersebut tidak ditemukan."
+            detail="Pertanyaan dengan id tersebut tidak ditemukan."
         )
 
     masalah.delete(synchronize_session=False)
@@ -89,4 +87,4 @@ def delete_question(id: int, db: Session, user:str):
     return {
         "Pesan": "Masalah berhasil dihapus."
     }
-'''
+

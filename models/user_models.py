@@ -11,8 +11,12 @@ class User(Base):
     email = Column(String)
     nama = Column(String)
     password = Column(String)
-    healthiness = Column(String, default="")
-
+    physical_touch = Column(Integer, default=0)
+    word_affirmation = Column(Integer, default=0)
+    gift = Column(Integer, default=0)
+    quality_time = Column(Integer, default=0)
+    act_of_service = Column(Integer, default=0)
+    
     class Config:
         schema_extra = {
             "Contoh": {
@@ -42,7 +46,11 @@ class UserSchema(BaseModel):
 class ShowUser(BaseModel):
     email: EmailStr
     nama: str
-    healthiness : str
+    physical_touch : int
+    word_affirmation : int
+    gift : int
+    quality_time : int
+    act_of_service : int
 
     class Config:
         orm_mode = True
@@ -50,7 +58,11 @@ class ShowUser(BaseModel):
             "example": {
                 "email": "example@mail.com",
                 "nama": "Yanto",
-                "healthiness": "Greenlight",
+                "phyisical_touch (%)" : "20",
+                "word_affirmation (%)" : "20",
+                "gif (%)" : "20",
+                "quality_time (%)" : "20",
+                "act_of_service (%)" : "20",
             }
         }
 
@@ -65,29 +77,30 @@ class TokenData(BaseModel):
 
 
 class AnswerSchema(BaseModel):
-    jawaban_masalah_1: conint(gt=-1, lt=4)
-    jawaban_masalah_2: conint(gt=-1, lt=4)
-    jawaban_masalah_3: conint(gt=-1, lt=4)
-    jawaban_masalah_4: conint(gt=-1, lt=4)
-    jawaban_masalah_5: conint(gt=-1, lt=4)
+    jawaban_masalah_1: conint(gt=-0, lt=4)
+    jawaban_masalah_2: conint(gt=-0, lt=4)
+    jawaban_masalah_3: conint(gt=-0, lt=4)
+    jawaban_masalah_4: conint(gt=-0, lt=4)
+    jawaban_masalah_5: conint(gt=-0, lt=4)
     jawaban_masalah_6: conint(gt=-1, lt=4)
     jawaban_masalah_7: conint(gt=-1, lt=4)
     jawaban_masalah_8: conint(gt=-1, lt=4)
     jawaban_masalah_9: conint(gt=-1, lt=4)
+    jawaban_masalah_10: conint(gt=-1, lt=4)
 
     class Config:
         orm_mode = True
         schema_extra = {
             "example": {
-                "jawaban_pertanyaan_1": 0,
-                "jawaban_pertanyaan_2": 1,
-                "jawaban_pertanyaan_3": 0,
-                "jawaban_pertanyaan_4": 2,
-                "jawaban_pertanyaan_5": 0,
-                "jawaban_pertanyaan_6": 3,
-                "jawaban_pertanyaan_7": 0,
-                "jawaban_pertanyaan_8": 1,
-                "jawaban_pertanyaan_9": 2
-
+                "jawaban_masalah_1": 1,
+                "jawaban_masalah_2": 1,
+                "jawaban_masalah_3": 2,
+                "jawaban_masalah_4": 2,
+                "jawaban_masalah_5": 3,
+                "jawaban_masalah_6": 1,
+                "jawaban_masalah_7": 2,
+                "jawaban_masalah_8": 3, 
+                "jawaban_masalah_9": 1,
+                "jawaban_masalah_10": 2
             }
         }

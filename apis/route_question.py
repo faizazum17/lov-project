@@ -15,7 +15,7 @@ question_router = APIRouter(
 
 
 @question_router.post("/create")
-def create_a_question_UNDERDEV(request: QuestionSchema, db: Session = Depends(get_db), user: str = Depends(authenticate)) -> dict:
+def create_a_question(request: QuestionSchema, db: Session = Depends(get_db), user: str = Depends(authenticate)) -> dict:
     return question_controllers.create_quesiton(request, db, user)
 
 
@@ -30,11 +30,11 @@ def get_a_question(id: int, db: Session = Depends(get_db), user: str = Depends(a
 
 
 @question_router.put("/update/{id}")
-def update_a_question_UNDERDEV(id: int, request: QuestionUpdate, db: Session = Depends(get_db), user: str = Depends(authenticate)) -> dict:
+def update_a_question(id: int, request: QuestionUpdate, db: Session = Depends(get_db), user: str = Depends(authenticate)) -> dict:
     return question_controllers.update_question(id, request, db, user)
 
 
-
 @question_router.delete("/delete/{id}")
-def delete_a_question_UNDERDEV(id: int, db: Session = Depends(get_db), user: str = Depends(authenticate)) -> dict:
+def delete_a_question(id: int, db: Session = Depends(get_db), user: str = Depends(authenticate)) -> dict:
     return question_controllers.delete_question(id, db, user)
+
