@@ -1,30 +1,29 @@
-# Love-FastAPI
+# Love Language - FastAPI
 
-Cara Run API Secara Lokal
-1. Buka terminal (gunakan wsl pada windows) pada folder API
-2. Buat venv dengan
+How to run API via Local
+1. Open terminal using wsl on your windows at API directory
+2. Create venv by
 ```sh
 python3 -m venv venv
 ```
-3. Aktifkan venv dengan
+3. Activate virtual environment by 
 ```sh
 source venv/bin/activate
 ```
-4. Install module yang ada di requirements.txt dengan
+4. Install required module in requirements.txt by
 ```sh
-cd src
 pip install -r requirements.txt
 ```
-5. Buat file .env dan tetapkan variabel SECRET_KEY dan ALGORITM
+5. Create file .env and state variable with SECRET_KEY and ALGORITHM
 ```sh
 touch .env
 
-#Didalam file .env
-SECRET_KEY = "BEBASAJAINI" #Dapat diubah
-ALGORITM = "HS256" #Dapat diubah selama valid
+#In file .env
+SECRET_KEY = "xxxx" #editable
+ALGORITM = "HS256" #editable as long as valid
 ```
-6. Run API dengan
+6. Run API by
 ```sh
 python3 main.py
 ```
-## Selesai!
+## Done, Enjoy!
