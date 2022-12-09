@@ -58,11 +58,11 @@ class ShowUser(BaseModel):
             "example": {
                 "email": "example@mail.com",
                 "nama": "Yanto",
-                "phyisical_touch (%)" : "20",
-                "word_affirmation (%)" : "20",
-                "gif (%)" : "20",
-                "quality_time (%)" : "20",
-                "act_of_service (%)" : "20",
+                "phyisical_touch" : 20,
+                "word_affirmation" : 20,
+                "gif" : 20,
+                "quality_time" : 20,
+                "act_of_service" : 20,
             }
         }
 
