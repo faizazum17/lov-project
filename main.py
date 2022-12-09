@@ -22,5 +22,5 @@ app.include_router(general_pages_router, prefix="/home")
 def index():
     return {"Message" : "Hello, Welcome!"}
 
-if __name__ == '__main__':
-    uvicorn.run("main:app", host="localhost", port=8000, reload=True)
+# if __name__ == '__main__':
+#     uvicorn.run("main:app", host="localhost", port=8000, reload=True)
